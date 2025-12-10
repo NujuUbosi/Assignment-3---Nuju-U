@@ -1,0 +1,567 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUJU - Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* GLOBAL IMAGE SLOT */
+        .image-slot {
+            width: 100%;
+            height: 100%;
+            background-color: #333333;
+            border: 2px solid #666666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 1200px centered container */
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1a1a1a;
+            padding: 25px 0;
+            border-bottom: 2px solid #333333;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #888888;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #0a0a0a;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 90px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-text .subtitle {
+            font-size: 18px;
+            color: #888888;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .hero-roles {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .hero-roles span {
+            font-size: 20px;
+            color: #cccccc;
+            padding-left: 20px;
+            border-left: 3px solid #666666;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 450px;
+            height: 450px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .about-section .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .about-sidebar {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border: 2px solid #333333;
+        }
+
+        .about-sidebar h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .quote {
+            font-size: 18px;
+            font-style: italic;
+            color: #cccccc;
+            line-height: 1.6;
+            padding: 20px;
+            border-left: 4px solid #666666;
+            background-color: #0a0a0a;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .values-section h2 {
+            font-size: 48px;
+            margin-bottom: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .value-item {
+            background-color: #1a1a1a;
+            padding: 50px 30px;
+            border: 2px solid #333333;
+            text-align: center;
+        }
+
+        /* Hobbies Section */
+        .hobbies-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .hobbies-section h2 {
+            font-size: 48px;
+            margin-bottom: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .hobby-card {
+            background-color: #1a1a1a;
+            border: 2px solid #333333;
+        }
+
+        .hobby-image {
+            width: 100%;
+            height: 250px;
+        }
+
+        .hobby-content {
+            padding: 30px;
+        }
+
+        /* Music Section */
+        .music-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .music-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .music-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #888888;
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        .music-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .music-description {
+            background-color: #1a1a1a;
+            padding: 50px;
+            border: 2px solid #333333;
+        }
+
+        .music-image {
+            min-height: 350px;
+        }
+
+        /* Favorite Artist */
+        .artist-image {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+
+        .gallery-section h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: lowercase;
+            color: #ffffff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 40px 0;
+            border-top: 2px solid #333333;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">NUJU</a>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#hobbies">HOBBIES</a></li>
+                <li><a href="#music">MUSIC</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>I'M NUJU</h1>
+                <p class="subtitle">A Brief Description About Myself</p>
+                <div class="hero-roles">
+                    <span>Student</span>
+                    <span>Aspiring Designer</span>
+                    <span>Athlete</span>
+                    <span>Book Lover</span>
+                    <span>Culture</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="profile-pic image-slot">
+                    <img src="imageofme.jpg" alt="Nuju Profile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-text">
+                <h2>ABOUT ME</h2>
+                <p>Welcome to my personal space on the web! I'm a passionate student currently pursuing my studies in design...</p>
+                <p>My background is rooted in a love for both the arts and athletics...</p>
+                <p>I believe in the power of continuous learning...</p>
+            </div>
+
+            <div class="about-sidebar">
+                <h3>PERSONALITY</h3>
+                <div class="quote">"a quote here"</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values-section">
+        <div class="container">
+            <h2>V A L U E S</h2>
+
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>VALUE 1</h3>
+                    <p>Description...</p>
+                </div>
+                <div class="value-item">
+                    <h3>VALUE 2</h3>
+                    <p>Description...</p>
+                </div>
+                <div class="value-item">
+                    <h3>VALUE 3</h3>
+                    <p>Description...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="hobbies-section">
+        <div class="container">
+            <h2>H O B B I E S</h2>
+
+            <div class="hobbies-grid">
+
+                <div class="hobby-card">
+                    <div class="hobby-image image-slot">
+                        <img src="images/basketball.jpg" alt="Basketball">
+                    </div>
+                    <div class="hobby-content">
+                        <h3>Basketball & Football</h3>
+                        <p>Description...</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card">
+                    <div class="hobby-image image-slot">
+                        <img src="images/books.jpg" alt="Reading">
+                    </div>
+                    <div class="hobby-content">
+                        <h3>Reading</h3>
+                        <p>Description...</p>
+                    </div>
+                </div>
+
+                <div class="hobby-card">
+                    <div class="hobby-image image-slot">
+                        <img src="images/friends.jpg" alt="Friends">
+                    </div>
+                    <div class="hobby-content">
+                        <h3>Friends</h3>
+                        <p>Description...</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="music-section">
+        <div class="container">
+            <h2>MY AFROBEATS WORLD</h2>
+            <p class="music-subtitle">Where rhythm meets soul</p>
+
+            <div class="music-content">
+                <div class="music-description">
+                    <h3>MY CONNECTION TO AFROBEATS</h3>
+                    <p>Description goes here...</p>
+                </div>
+
+                <div class="music-image image-slot">
+                    <img src="images/afrobeats.jpg" alt="Afrobeats Music">
+                </div>
+            </div>
+
+            <!-- FAVORITE ARTIST -->
+            <div class="favorite-artist">
+                <h3>Favourite Afrobeat's Artist</h3>
+
+                <div class="artist-showcase">
+
+                    <div class="artist-image image-slot">
+                        <img src="images/artist.jpg" alt="Favorite Artist">
+                    </div>
+
+                    <div class="artist-info">
+                        <h4>ARTIST NAME</h4>
+                        <p>Description...</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ESSENTIAL SONGS -->
+            <div class="essentials-section">
+                <h3>E S S E N T I A L S</h3>
+
+                <div class="songs-grid">
+                    <div class="song-card">
+                        <div class="song-number">01</div>
+                        <h4>Song 1:</h4>
+                        <p>Description...</p>
+                    </div>
+
+                    <div class="song-card">
+                        <div class="song-number">02</div>
+                        <h4>Song 2:</h4>
+                        <p>Description...</p>
+                    </div>
+
+                    <div class="song-card">
+                        <div class="song-number">03</div>
+                        <h4>Song 3:</h4>
+                        <p>Description...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+
+            <h2>g a l l e r y</h2>
+            <p class="gallery-intro">A collection of moments and memories...</p>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item large image-slot">
+                    <img src="images/photo1.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo2.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo3.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo4.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo5.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo6.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item large image-slot">
+                    <img src="images/photo7.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo8.jpg" alt="Gallery Photo">
+                </div>
+
+                <div class="gallery-item image-slot">
+                    <img src="images/photo9.jpg" alt="Gallery Photo">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nuju. All rights reserved.</p>
+            <p>Contact: <a href="mailto:nuju@uwaterloo.ca">nuju@uwaterloo.ca</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
